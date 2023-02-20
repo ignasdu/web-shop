@@ -2,11 +2,15 @@ import styled from "styled-components";
 import { searchBgColor } from "../../consts/colors";
 import { AiOutlineSearch } from "react-icons/ai";
 
-const SearchBar = () => {
+const SearchBar = ({ value, setValue }) => {
   return (
     <InputWrapper>
       <AiOutlineSearch />
-      <Input placeholder="Search" />
+      <Input
+        placeholder="Search"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
     </InputWrapper>
   );
 };
@@ -15,7 +19,6 @@ export default SearchBar;
 
 const InputWrapper = styled.div`
   position: relative;
-
   svg {
     font-size: 22px;
     position: absolute;
